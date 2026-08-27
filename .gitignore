@@ -1,0 +1,18 @@
+# Python & AI Engine
+__pycache__/
+*.py[cod]
+ai-engine/venv/
+ai-engine/*.db
+ai-engine/*.sqlite
+
+# Next.js Frontend
+frontend-ui/node_modules/
+frontend-ui/.next/
+frontend-ui/out/
+frontend-ui/build/
+
+# Environment & OS
+.env
+.env.local
+.DS_Store
+Thumbs.db
