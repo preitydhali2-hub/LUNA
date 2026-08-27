@@ -145,7 +145,7 @@ ollama run llama3.2:3b
 ### Step 1: Clone the Repository
 
 ```bash
-git clone [https://github.com/preitydhali2-hub/LUNA.git](https://github.com/preitydhali2-hub/LUNA.git)
+git clone https://github.com/preitydhali2-hub/LUNA.git
 cd LUNA
 
 ```
