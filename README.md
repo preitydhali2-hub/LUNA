@@ -1,6 +1,6 @@
-<p align="center">
-  <img src="firstcover.png" alt="LUNA Banner" width="100%" />
-</p>
+<div align="center">
+
+![LUNA Banner](./firstcover.png)
 
 # LUNA
 ### Autonomous NHS Primary Care Telephony & Clinical Triage Engine
@@ -68,10 +68,17 @@ Primary care GP surgeries face severe telephone congestion every morning during 
 
 ## 📸 Interface Tour
 
-| 1. Live Patient WebPhone Simulator | 2. GP Reception Command Center |
-| --- | --- |
-| *Hands-free microphone STT, dynamic waveforms, and multi-turn intake.* | *Real-time WebSocket audio stream, live KPIs, and EHR records.* |
-|  |  |
+### 1. Live Patient WebPhone Simulator
+*Hands-free microphone STT, dynamic waveforms, and deterministic red-flag interception.*
+
+![LUNA WebPhone Simulator](./app2.png)
+
+---
+
+### 2. GP Reception Command Center
+*Real-time WebSocket audio stream, live triage telemetry, and persisted EHR records.*
+
+![LUNA GP Reception Dashboard](./app1.png)
 
 ---
 
