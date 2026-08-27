@@ -1,7 +1,6 @@
-```markdown
-<div align="center">
-
-<img src="./firstcover.jpg" alt="LUNA Banner" width="100%" style="border-radius: 12px; margin-bottom: 20px;" />
+<p align="center">
+  <img src="firstcover.png" alt="LUNA Banner" width="100%" />
+</p>
 
 # LUNA
 ### Autonomous NHS Primary Care Telephony & Clinical Triage Engine
@@ -13,13 +12,9 @@
 [![Frontend](https://img.shields.io/badge/Frontend-Next.js_14_%7C_Tailwind_v4_%7C_WebSockets-0284C7?style=flat-square&logo=next.js&logoColor=white)](#-tech-stack--python-assets)
 [![License](https://img.shields.io/badge/License-MIT-slate?style=flat-square)](#-license)
 
-<p align="center">
-  <b>LUNA</b> is a voice-enabled, privacy-preserving clinical telephony platform built for NHS England General Practice (GP) surgeries. It automates inbound call intake, resolves morning telephony queue congestion, executes deterministic clinical safety checks, delivers grounded self-care protocols via local vector RAG, and streams live telemetry to the surgery receptionist command center.
-</p>
+**LUNA** is a voice-enabled, privacy-preserving clinical telephony platform built for NHS England General Practice (GP) surgeries. It automates inbound call intake, resolves morning telephony queue congestion, executes deterministic clinical safety checks, delivers grounded self-care protocols via local vector RAG, and streams live telemetry to the surgery receptionist command center.
 
 [The Problem](#-the-problem--solution) • [System Architecture](#-system-architecture) • [Interface Tour](#-interface-tour) • [Key Engineering Highlights](#-key-engineering-highlights) • [Python Assets & Tech Stack](#-tech-stack--python-assets) • [Quickstart](#-quickstart-guide) • [Clinical Safety](#-clinical-safety--dcb0129-compliance)
-
-</div>
 
 ---
 
@@ -36,42 +31,36 @@ Primary care GP surgeries face severe telephone congestion every morning during 
 
 ## 🏛️ System Architecture
 
-
-```
-
-```
-                            [ Patient Voice / Microphone ]
-                                          │
-                                          ▼ (Client-Side Web Speech STT)
-                              [ Next.js 14 WebPhone ]
-                                          │
-                                          ▼ (WebSocket Bi-Directional Stream)
-                             [ FastAPI Telephony Gateway ]
-                                          │
-               ┌──────────────────────────┴──────────────────────────┐
-               ▼                                                     ▼
-  [ DCB0129 Safety Guardrail ]                            [ SQLite Relational DB ]
-(Deterministic Pattern Engine)                           (Session Auditing & EHR)
-               │
-  ┌────────────┴────────────┐
-
-```
-
-(Emergency)               (Non-Emergency)
-▼                         ▼
+```text
+                                [ Patient Voice / Microphone ]
+                                              │
+                                              ▼ (Client-Side Web Speech STT)
+                                  [ Next.js 14 WebPhone ]
+                                              │
+                                              ▼ (WebSocket Bi-Directional Stream)
+                                 [ FastAPI Telephony Gateway ]
+                                              │
+                   ┌──────────────────────────┴──────────────────────────┐
+                   ▼                                                     ▼
+      [ DCB0129 Safety Guardrail ]                            [ SQLite Relational DB ]
+    (Deterministic Pattern Engine)                           (Session Auditing & EHR)
+                   │
+      ┌────────────┴────────────┐
+ (Emergency)               (Non-Emergency)
+      ▼                         ▼
 [ 999 Directive ]       [ Local Vector RAG ]
 (Instant Override)     (NHS Clinical Protocols)
-│                         │
-│                         ▼
-│               [ Llama-3.2:3b (Ollama) ]
-│               (Clinical Intake Reasoning)
-│                         │
-└────────────┬────────────┘
-▼
-[ Neural Audio Synthesis ] ──(en-GB-SoniaNeural)──► Audio Stream to Patient
-│
-▼ (WebSocket Event Broadcast)
-[ GP Reception Command Center ] ──► (Real-Time Live Telemetry & Triage Table)
+      │                         │
+      │                         ▼
+      │               [ Llama-3.2:3b (Ollama) ]
+      │               (Clinical Intake Reasoning)
+      │                         │
+      └────────────┬────────────┘
+                   ▼
+     [ Neural Audio Synthesis ] ──(en-GB-SoniaNeural)──► Audio Stream to Patient
+                   │
+                   ▼ (WebSocket Event Broadcast)
+    [ GP Reception Command Center ] ──► (Real-Time Live Telemetry & Triage Table)
 
 ```
 
@@ -79,22 +68,10 @@ Primary care GP surgeries face severe telephone congestion every morning during 
 
 ## 📸 Interface Tour
 
-<div align="center">
-  <table>
-    <tr>
-      <td width="50%" align="center">
-        <b>1. Live Patient WebPhone Simulator</b><br/>
-        <i>Hands-free microphone STT, dynamic waveform visualizer, and multi-turn clinical triage intake.</i><br/><br/>
-        <img src="./app2.png" alt="LUNA WebPhone Simulator" width="100%" style="border-radius: 8px;" />
-      </td>
-      <td width="50%" align="center">
-        <b>2. GP Reception Command Center</b><br/>
-        <i>Real-time WebSocket audio/text stream, live KPI counters, and persisted EHR SQLite session records.</i><br/><br/>
-        <img src="./app1.png" alt="LUNA GP Reception Dashboard" width="100%" style="border-radius: 8px;" />
-      </td>
-    </tr>
-  </table>
-</div>
+| 1. Live Patient WebPhone Simulator | 2. GP Reception Command Center |
+| --- | --- |
+| *Hands-free microphone STT, dynamic waveforms, and multi-turn intake.* | *Real-time WebSocket audio stream, live KPIs, and EHR records.* |
+|  |  |
 
 ---
 
@@ -111,6 +88,7 @@ Primary care GP surgeries face severe telephone congestion every morning during 
 ## 🛠️ Tech Stack & Python Assets
 
 ### Backend & AI Engine (Python)
+
 * **FastAPI & Uvicorn (`fastapi`, `uvicorn`):** High-performance asynchronous ASGI web and WebSocket streaming server.
 * **Ollama (`llama3.2:3b`):** 3-billion parameter quantized local language model for structured clinical dialogue and triage categorization.
 * **Edge-TTS (`edge-tts`):** Asynchronous Python wrapper generating high-fidelity British neural voice synthesis (`en-GB-SoniaNeural`).
@@ -120,6 +98,7 @@ Primary care GP surgeries face severe telephone congestion every morning during 
 * **Embedded Vector RAG (`math`, `re`):** Custom zero-dependency cosine similarity search engine indexing official NHS self-care protocols without GPU VRAM overhead.
 
 ### Frontend & Telephony UI
+
 * **Framework:** Next.js 14 (App Router), React 18, TypeScript
 * **Styling & Effects:** Tailwind CSS v4, Lucide React, Glassmorphism design system, HTML5 Canvas Particle Engine
 * **Speech Input (STT):** Browser Native Web Speech API (`webkitSpeechRecognition`) for client-side, zero-latency transcription
@@ -130,9 +109,10 @@ Primary care GP surgeries face severe telephone congestion every morning during 
 ## 🚀 Quickstart Guide
 
 ### Prerequisites
+
 * **Python 3.10+**
 * **Node.js 18+**
-* **[Ollama](https://ollama.com)** installed and running
+* **Ollama** installed and running
 
 ```bash
 # Pull the local lightweight clinical model
@@ -140,19 +120,15 @@ ollama run llama3.2:3b
 
 ```
 
----
-
-### Step 1: Clone the Repository
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/preitydhali2-hub/LUNA.git
+git clone [https://github.com/preitydhali2-hub/LUNA.git](https://github.com/preitydhali2-hub/LUNA.git)
 cd LUNA
 
 ```
 
----
-
-### Step 2: Start the AI Engine (Terminal 1)
+### 2. Start the AI Engine (Terminal 1)
 
 ```bash
 cd ai-engine
@@ -169,9 +145,7 @@ uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
 
 ```
 
----
-
-### Step 3: Start the Frontend UI (Terminal 2)
+### 3. Start the Frontend UI (Terminal 2)
 
 ```bash
 cd frontend-ui
@@ -196,9 +170,9 @@ Digital health technologies used in primary care across NHS England must demonst
 
 ## 📂 Project Structure
 
-```
+```text
 LUNA/
-├── firstcover.jpg                # Cover banner image
+├── firstcover.png                # Cover banner image
 ├── app1.png                      # GP Reception Monitor screenshot
 ├── app2.png                      # WebPhone Simulator screenshot
 ├── ai-engine/
@@ -230,6 +204,4 @@ LUNA/
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-```
 
-```
