@@ -1,6 +1,6 @@
 <div align="center">
 
-![LUNA Banner](./firstcover.png)
+<img src="firstcover.png" alt="LUNA Clinical Telephony Banner" width="100%" style="border-radius: 10px; margin-bottom: 12px;" />
 
 # LUNA
 ### Autonomous NHS Primary Care Telephony & Clinical Triage Engine
@@ -9,12 +9,16 @@
 [![Python](https://img.shields.io/badge/Python-3.10%2B_%7C_FastAPI_%7C_SQLAlchemy-3776AB?style=flat-square&logo=python&logoColor=white)](#-tech-stack--python-assets)
 [![Local Inference](https://img.shields.io/badge/Inference-100%25_Offline_Ollama_Llama--3.2-10B981?style=flat-square)](#-tech-stack--python-assets)
 [![Latency](https://img.shields.io/badge/TTFT-%3C320ms-F59E0B?style=flat-square)](#)
-[![Frontend](https://img.shields.io/badge/Frontend-Next.js_14_%7C_Tailwind_v4_%7C_WebSockets-0284C7?style=flat-square&logo=next.js&logoColor=white)](#-tech-stack--python-assets)
+[![Frontend](https://img.shields.io/badge/Frontend-Next.js_14_%7C_Tailwind_v4-0284C7?style=flat-square&logo=next.js&logoColor=white)](#-tech-stack--python-assets)
 [![License](https://img.shields.io/badge/License-MIT-slate?style=flat-square)](#-license)
 
-**LUNA** is a voice-enabled, privacy-preserving clinical telephony platform built for NHS England General Practice (GP) surgeries. It automates inbound call intake, resolves morning telephony queue congestion, executes deterministic clinical safety checks, delivers grounded self-care protocols via local vector RAG, and streams live telemetry to the surgery receptionist command center.
+<p>
+  <b>LUNA</b> is a voice-enabled, privacy-preserving clinical telephony platform built for NHS England General Practice (GP) surgeries. It automates inbound call intake, resolves morning telephony queue congestion, executes deterministic clinical safety checks, delivers grounded self-care protocols via local vector RAG, and streams live telemetry to the surgery receptionist command center.
+</p>
 
-[The Problem](#-the-problem--solution) • [System Architecture](#-system-architecture) • [Interface Tour](#-interface-tour) • [Key Engineering Highlights](#-key-engineering-highlights) • [Python Assets & Tech Stack](#-tech-stack--python-assets) • [Quickstart](#-quickstart-guide) • [Clinical Safety](#-clinical-safety--dcb0129-compliance)
+[The Problem](#-the-problem--solution) • [Architecture](#-system-architecture) • [Interface Tour](#-interface-tour) • [Key Highlights](#-key-engineering-highlights) • [Tech Stack](#-tech-stack--python-assets) • [Quickstart](#-quickstart-guide) • [Clinical Safety](#-clinical-safety--dcb0129-compliance)
+
+</div>
 
 ---
 
@@ -69,16 +73,18 @@ Primary care GP surgeries face severe telephone congestion every morning during 
 ## 📸 Interface Tour
 
 ### 1. Live Patient WebPhone Simulator
-*Hands-free microphone STT, dynamic waveforms, and deterministic red-flag interception.*
+*Hands-free microphone speech-to-text, dynamic audio visualizers, and multi-turn clinical intake.*
 
 ![LUNA WebPhone Simulator](./app2.png)
 
 ---
 
 ### 2. GP Reception Command Center
-*Real-time WebSocket audio stream, live triage telemetry, and persisted EHR records.*
+*Real-time WebSocket audio/text stream, live triage telemetry badges, and persisted SQLite EHR logs.*
 
 ![LUNA GP Reception Dashboard](./app1.png)
+
+
 
 ---
 
@@ -94,7 +100,7 @@ Primary care GP surgeries face severe telephone congestion every morning during 
 
 ## 🛠️ Tech Stack & Python Assets
 
-### Backend & AI Engine (Python)
+**Backend & AI Engine (Python)**
 
 * **FastAPI & Uvicorn (`fastapi`, `uvicorn`):** High-performance asynchronous ASGI web and WebSocket streaming server.
 * **Ollama (`llama3.2:3b`):** 3-billion parameter quantized local language model for structured clinical dialogue and triage categorization.
@@ -104,7 +110,7 @@ Primary care GP surgeries face severe telephone congestion every morning during 
 * **Pydantic (`pydantic`):** Strict data validation and schema enforcement for API contracts and session states.
 * **Embedded Vector RAG (`math`, `re`):** Custom zero-dependency cosine similarity search engine indexing official NHS self-care protocols without GPU VRAM overhead.
 
-### Frontend & Telephony UI
+**Frontend & Telephony UI**
 
 * **Framework:** Next.js 14 (App Router), React 18, TypeScript
 * **Styling & Effects:** Tailwind CSS v4, Lucide React, Glassmorphism design system, HTML5 Canvas Particle Engine
@@ -210,5 +216,4 @@ LUNA/
 ## 📄 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-
 
